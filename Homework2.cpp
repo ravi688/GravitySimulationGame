@@ -285,10 +285,7 @@ struct CollisionResolver
 		
 		void resolve()
 		{
-			// TODO:
-			// expensive operation
-			// if collision occurs
-			// collider->getRigidbody()->setMomentum(calculateMomentumm
+			
 		}
 };
 
@@ -608,9 +605,13 @@ int main()
    			}
 		}
    		
+   		// simulate gravitational force
    		gravitySimulator.simulate(deltaTime);
+   		
+   		// resolve collision
    		collisionResolver.resolve();
    	
+   		// render the objects
    		CircleCollider* const* colliders = collisionResolver.getColliderBuffer();
    		int colliderCount = collisionResolver.getColliderCount();
 		renderObjects(&context, colliders, colliderCount);
